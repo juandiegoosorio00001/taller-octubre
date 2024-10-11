@@ -5,7 +5,7 @@ public class Biblioteca {
         Scanner register = new Scanner(System.in);
         Scanner entrada = new Scanner(System.in);
         String answer;
-        System.out.println("¿cual es tu ocupacion? \n 1/estudiante,\n 2/administrador, 3/Docente");
+        System.out.println("¿cual es tu ocupacion? \n 1/estudiante,\n 2/administrador,\n 3/Docente");
         answer = entrada.nextLine().toLowerCase();
         switch (answer) {
          case "1":
