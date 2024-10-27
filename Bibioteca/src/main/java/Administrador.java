@@ -1,54 +1,33 @@
 
-import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Administrador extends Persona{
-
-    public Administrador(String name, String lastname, int identificacion, String ocupacion) {
+public Administrador(String name, String lastname, int identificacion, String ocupacion) {
         super(name, lastname, identificacion, ocupacion);
     }
-    
-    public void crearpersona(){
-       System.out.println("Bienvenido administrador "+name +" "+ lastname + ocupacion +" id: "+ identificacion );
+
+    public void registrarLibros(List<Libro> librosDisponibles) {
         Scanner entrada = new Scanner(System.in);
-        int[] space = new int[20];
-        int maxLibros = space.length;
-
-        System.out.println("Ingrese la cantidad de libros que desea ingresar:");
-        int Numbooks;
-
-        int intentos = 0;
-        do {
-        try {
-              Numbooks = entrada.nextInt();
-                if (Numbooks <= 0 || Numbooks > maxLibros) {
-                 System.out.println("Error: Ingrese un número entero positivo y menor o igual a " + maxLibros + ".");
-                 intentos++;
-                    if (intentos==3) {
-                        System.out.println("Has hecho demasiados intentos, intentalo luego nuevamente.");
-                        entrada.close();
-                    }
-                }
-            }catch (InputMismatchException e) {
-                System.out.println("Error: Debe ingresar un número entero.");
-                entrada.next(); 
-                Numbooks = 0;
-                
+        boolean prueba;
+        prueba = false;
+        while(!prueba){
+         System.out.println("Cuantos libros desea registrar?");
+         int numLibros = entrada.nextInt();
+            if (numLibros <0 || numLibros >20) {
+                System.out.println("por favor ingresa un valor valido mayor a 0 y menor a 20");
+                entrada.nextLine();
+            }else{
+              prueba=true;
+              entrada.nextLine();
+              for (int i = 0; i < numLibros; i++) {
+               System.out.println("Ingrese el nombre del libro " + (i + 1) + ":");
+               String nombreLibro = entrada.nextLine();
+               librosDisponibles.add(new Libro(nombreLibro));
+               System.out.println("Libro " + nombreLibro + " registrado.");
+              }
+            }
+        }  
     }
-        } while (Numbooks <= 0 || Numbooks > maxLibros && intentos < 3); 
-
-        String[] namesLibros = new String[Numbooks];
-        System.out.println("Ingrese el nombre del libro " + 1 + " que desea ingresar:");
-            namesLibros[0] = entrada.nextLine();
-        for (int i = 0; i < Numbooks; i++) {
-            namesLibros[i] = entrada.nextLine();
-            System.out.println("Ingrese el nombre del libro " + (i+2) + " que desea ingresar:");
-            
-        }
-        System.out.println("Resumen de sus libros ingresados:");
-        for (int i = 0; i < Numbooks; i++) {
-            System.out.println("Libro " + (i + 1) + ": " + namesLibros[i]);
-        }
-        entrada.close();
-    }
+    
 }

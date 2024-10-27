@@ -1,53 +1,80 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Biblioteca {
     public static void main(String[] args) {
-        Scanner register = new Scanner(System.in);
-        Scanner entrada = new Scanner(System.in);
-        String answer;
-        System.out.println("¿cual es tu ocupacion? \n 1/estudiante,\n 2/administrador,\n 3/Docente");
-        answer = entrada.nextLine().toLowerCase();
-        switch (answer) {
-         case "1":
-             System.out.println("Eres estudiante.");
-             System.out.println("ingrese nombre");
-             String name = register.nextLine();
-             System.out.println("ingrese apellido");
-             String lastname = register.nextLine();
-             System.out.println("ingrese ocupacion");
-             String ocupation = register.nextLine();
-             System.out.println("ingrese id");
-             int id = register.nextInt();
-             Estudiante student = new Estudiante(name,lastname,id,ocupation);
-             student.prestarLibro();
-             break;
-          case "2":
-             System.out.println("ingrese ocupacion");
-             String ocupation1 = register.nextLine();
-             System.out.println("ingrese nombre");
-             String name1 = register.nextLine();
-             System.out.println("ingrese apellido");
-             String lastname1 = register.nextLine();
-             System.out.println("ingrese id");
-             int id1 = register.nextInt();
-             
-             System.out.println("Eres administrador");
-             Administrador admin = new Administrador(name1,lastname1,id1,ocupation1);
-             admin.crearpersona();
-             break;
-          case "3":
-             System.out.println("ingrese nombre");
-             String name2 = register.nextLine();
-             System.out.println("ingrese apellido");
-             String lastname2 = register.nextLine();
-             System.out.println("ingrese ocupacion");
-             String ocupation2 = register.nextLine();
-             System.out.println("ingrese id");
-             int id2 = register.nextInt();
-             Docente teacher = new Docente(name2,lastname2,id2,ocupation2);
-             System.out.println("Eres administrador");
-             teacher.Profesor();
-             break;
+       Scanner scanner = new Scanner(System.in);
+        List<Libro> librosDisponibles = new ArrayList<>();
+        
+        while (true) {
+            try{
+            System.out.println("**************************");
+            System.out.println("*        MENU            *");
+            System.out.println("**************************");
+            System.out.println("*  1. Estudiante         *");
+            System.out.println("*  2. Administrador      *");
+            System.out.println("*  3. Profesor           *");
+            System.out.println("*  4. Salir              *");
+            System.out.println("**************************");
+            String answer = scanner.nextLine();
+
+            switch (answer) {
+                case "1":
+                    System.out.println("Eres estudiante.");
+                    System.out.println("Ingrese nombre:");
+                    String name = scanner.nextLine();
+                    System.out.println("Ingrese apellido:");
+                    String lastname = scanner.nextLine();
+                    System.out.println("Ingrese ocupacion:");
+                    String ocupacion = scanner.nextLine();
+                    System.out.println("Ingrese ID:");
+                    int id = scanner.nextInt();
+                    scanner.nextLine();
+                    Estudiante student = new Estudiante(name, lastname, id, ocupacion);
+                    student.prestarLibro(librosDisponibles);
+                    break;
+
+                case "2":
+                    System.out.println("Eres administrador.");
+                    System.out.println("Ingrese nombre:");
+                    String nameAdmin = scanner.nextLine();
+                    System.out.println("Ingrese apellido:");
+                    String lastnameAdmin = scanner.nextLine();
+                    System.out.println("Ingrese ocupacion:");
+                    String ocupacionAdmin = scanner.nextLine();
+                    System.out.println("Ingrese ID:");
+                    int idAdmin = scanner.nextInt();
+                    scanner.nextLine();
+                    Administrador admin = new Administrador(nameAdmin, lastnameAdmin, idAdmin, ocupacionAdmin);
+                    admin.registrarLibros(librosDisponibles);
+                    break;
+
+                case "3":
+                    System.out.println("Eres profesor.");
+                     System.out.println("Ingrese nombre:");
+                        String nameTeacher = scanner.nextLine();
+                    System.out.println("Ingrese apellido:");
+                     String lastnameTeacher = scanner.nextLine();
+                     System.out.println("Ingrese ocupacion:");
+                         String ocupacionTeacher = scanner.nextLine();
+                        System.out.println("Ingrese ID:");
+                    int idTeacher = scanner.nextInt();
+                    scanner.nextLine();
+                    Docente teacher = new Docente(nameTeacher, lastnameTeacher, idTeacher, ocupacionTeacher);
+                    teacher.Profesor(librosDisponibles);
+                    break;
+                case "4":
+                    System.out.println("Vuelve Pronto");
+                    scanner.close();
+                    return;
+                default:
+                    System.out.println("Ese dato no es valido");
+                    break;
+            }
+            }catch(Exception e){
+            System.out.println("error: "+ e);
+            }
         }
     }
 }
