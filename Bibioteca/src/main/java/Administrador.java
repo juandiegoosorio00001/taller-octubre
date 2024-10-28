@@ -9,6 +9,7 @@ public class Administrador extends Persona implements Prestar {
     
     public void PrestarLibro(List<Libro> booksavailable) {
      try{
+        System.out.println("Bienvenido " + occupation + ": " + name + " " + lastname + " identificado con Cedula de ciudadania: " + identification);
         Scanner entrada = new Scanner(System.in);
         boolean prueba = false;
         while (!prueba) {
@@ -21,10 +22,11 @@ public class Administrador extends Persona implements Prestar {
                 prueba = true;
                 entrada.nextLine();
                 for (int i = 0; i < numLibros; i++) {
+                    System.out.println("--------------------------------------------");
                     System.out.println("Ingrese el nombre del libro " + (i + 1) + ":");
                     String nombreLibro = entrada.nextLine();
                     booksavailable.add(new Libro(nombreLibro));
-                    System.out.println("Libro " + nombreLibro + " registrado.");
+                    System.out.println("El libro " + nombreLibro + " ha sido registrado.");
                 }
             }
         }

@@ -8,7 +8,7 @@ public class Docente extends Persona implements Prestar{
 
     public void PrestarLibro(List<Libro> booksavailable) {
        try{
-        System.out.println("Bienvenido " + occupation + ": " + name + " " + lastname + " id: " + identification);
+        System.out.println("Bienvenido " + occupation + ": " + name + " " + lastname + " identificado con Cedula de ciudadania: " + identification);
         Scanner entrada = new Scanner(System.in);
         System.out.println("Libros disponibles para alquilar: " + booksavailable);
         System.out.println("Cuantos libros deseas alquilar?");
@@ -31,7 +31,9 @@ public class Docente extends Persona implements Prestar{
 
         String[] namebooks = new String[bookstoapresent];
         for (int i = 0; i < bookstoapresent; i++) {
+            System.out.println("---------------------------------------------------------------");
             System.out.println("Ingrese el nombre del libro " + (i + 1) + " que desea alquilar:");
+            System.out.println("---------------------------------------------------------------");
             String booksrequested = entrada.nextLine();
             boolean bookfound = false;
             for (int j = 0; j < booksavailable.size(); j++) {

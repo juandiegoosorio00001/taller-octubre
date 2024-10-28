@@ -26,10 +26,13 @@ public class Biblioteca {
                     System.out.println("Eres estudiante.");
                     System.out.println("Ingrese nombre:");
                     String name = scanner.nextLine();
+                    System.out.println("---------------------");
                     System.out.println("Ingrese apellido:");
                     String lastname = scanner.nextLine();
-                    System.out.println("Ingrese occupation:");
+                    System.out.println("---------------------");
+                    System.out.println("Ingrese ocupacion:");
                     String occupation = scanner.nextLine();
+                    System.out.println("---------------------");
                     System.out.println("Ingrese ID:");
                     int id = scanner.nextInt();
                     scanner.nextLine();
@@ -41,10 +44,13 @@ public class Biblioteca {
                     System.out.println("Eres administrador.");
                     System.out.println("Ingrese nombre:");
                     String nameAdmin = scanner.nextLine();
+                    System.out.println("---------------------");
                     System.out.println("Ingrese apellido:");
                     String lastnameAdmin = scanner.nextLine();
-                    System.out.println("Ingrese occupation:");
+                    System.out.println("---------------------");
+                    System.out.println("Ingrese ocupacion:");
                     String occupationAdmin = scanner.nextLine();
+                    System.out.println("---------------------");
                     System.out.println("Ingrese ID:");
                     int idAdmin = scanner.nextInt();
                     scanner.nextLine();
@@ -54,13 +60,16 @@ public class Biblioteca {
 
                 case "3":
                     System.out.println("Eres profesor.");
-                     System.out.println("Ingrese nombre:");
-                        String nameTeacher = scanner.nextLine();
+                    System.out.println("Ingrese nombre:");
+                    String nameTeacher = scanner.nextLine();
+                    System.out.println("---------------------");
                     System.out.println("Ingrese apellido:");
-                     String lastnameTeacher = scanner.nextLine();
-                     System.out.println("Ingrese occupation:");
-                         String occupationTeacher = scanner.nextLine();
-                        System.out.println("Ingrese ID:");
+                    String lastnameTeacher = scanner.nextLine();
+                    System.out.println("---------------------");
+                    System.out.println("Ingrese ocupacion:");
+                    String occupationTeacher = scanner.nextLine();
+                    System.out.println("---------------------");
+                    System.out.println("Ingrese ID:");
                     int idTeacher = scanner.nextInt();
                     scanner.nextLine();
                     Docente teacher = new Docente(nameTeacher, lastnameTeacher, idTeacher, occupationTeacher);
