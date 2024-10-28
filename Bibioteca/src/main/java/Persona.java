@@ -1,3 +1,5 @@
+import java.util.List;
+
 class Libro {
     private final String nombre;
 
@@ -15,7 +17,7 @@ class Libro {
     }
 }
 
-class Persona {
+abstract class Persona {
     String name;
     String lastname;
     int identificacion;
@@ -27,4 +29,5 @@ class Persona {
         this.identificacion = identificacion;
         this.ocupacion = ocupacion;
     }
+    public abstract void PrestarLibro(List<Libro> librosDisponibles);
 }

@@ -6,17 +6,19 @@ public class Biblioteca {
     public static void main(String[] args) {
        Scanner scanner = new Scanner(System.in);
         List<Libro> librosDisponibles = new ArrayList<>();
-        
         while (true) {
-            try{
-            System.out.println("**************************");
+         try{
+            System.out.println("--------------------------");
             System.out.println("*        MENU            *");
-            System.out.println("**************************");
+            System.out.println("--------------------------");
             System.out.println("*  1. Estudiante         *");
+            System.out.println("--------------------------");
             System.out.println("*  2. Administrador      *");
+            System.out.println("--------------------------");
             System.out.println("*  3. Profesor           *");
+            System.out.println("--------------------------");
             System.out.println("*  4. Salir              *");
-            System.out.println("**************************");
+            System.out.println("--------------------------");
             String answer = scanner.nextLine();
 
             switch (answer) {
@@ -32,10 +34,10 @@ public class Biblioteca {
                     int id = scanner.nextInt();
                     scanner.nextLine();
                     Estudiante student = new Estudiante(name, lastname, id, ocupacion);
-                    student.prestarLibro(librosDisponibles);
+                    student.PrestarLibro(librosDisponibles);
                     break;
 
-                case "2":
+                 case "2":
                     System.out.println("Eres administrador.");
                     System.out.println("Ingrese nombre:");
                     String nameAdmin = scanner.nextLine();
@@ -47,7 +49,7 @@ public class Biblioteca {
                     int idAdmin = scanner.nextInt();
                     scanner.nextLine();
                     Administrador admin = new Administrador(nameAdmin, lastnameAdmin, idAdmin, ocupacionAdmin);
-                    admin.registrarLibros(librosDisponibles);
+                    admin.PrestarLibro(librosDisponibles);
                     break;
 
                 case "3":
@@ -62,7 +64,7 @@ public class Biblioteca {
                     int idTeacher = scanner.nextInt();
                     scanner.nextLine();
                     Docente teacher = new Docente(nameTeacher, lastnameTeacher, idTeacher, ocupacionTeacher);
-                    teacher.Profesor(librosDisponibles);
+                    teacher.PrestarLibro(librosDisponibles);
                     break;
                 case "4":
                     System.out.println("Vuelve Pronto");
@@ -73,7 +75,7 @@ public class Biblioteca {
                     break;
             }
             }catch(Exception e){
-            System.out.println("error: "+ e);
+             System.out.println("error: "+ e);
             }
         }
     }
