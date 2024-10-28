@@ -63,12 +63,6 @@ public class Estudiante extends Persona implements Prestar{
 
     public void realizarAcciones(Object librosDisponibles) {
     }
-
-    public void PrestarLibro(Object librosDisponibles) {
-    }
-
-    public void prestarLibro(Object librosDisponibles) {
-    }
     @Override
     public void prestarLibro(List<Libro> librosDisponibles) {
     }
