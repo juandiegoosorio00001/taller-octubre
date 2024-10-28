@@ -20,11 +20,15 @@ public class Estudiante extends Persona implements Prestar{
             System.out.println("el numero de libros solicitados supera los libros disponibles, lo siento");
              System.out.println("actualmente contamos con " + booksavailable.size() +" libros dispobibles");
          }
-        while(bookstoapresent >3 || bookstoapresent <=0 || bookstoapresent > booksavailable.size()){
+        while(bookstoapresent >5 || bookstoapresent <=0 || bookstoapresent > booksavailable.size()){
         System.out.println("Libros disponibles para alquilar: " + booksavailable);
         System.out.println("Cuantos libros deseas alquilar?");
         bookstoapresent = entrada.nextInt();
-        entrada.nextLine();  
+        entrada.nextLine(); 
+        if(bookstoapresent <=0){
+             System.out.println("Lamento que no quieras alquilas ningun libro, espero pronto quieras hacerlo, adios.");
+             return;
+         }
         if(bookstoapresent > 5){
             System.out.println("Error, solo puedes alquilar maximo 5 libros al tiempo");
          }else if(bookstoapresent > booksavailable.size()) {
@@ -36,7 +40,6 @@ public class Estudiante extends Persona implements Prestar{
         for (int i = 0; i < bookstoapresent; i++) {
             System.out.println("---------------------------------------------------------------");
             System.out.println("Ingrese el nombre del libro " + (i + 1) + " que desea alquilar:");
-            System.out.println("---------------------------------------------------------------");
             String booksrequested = entrada.nextLine();
             boolean bookfound = false;
             for (int j = 0; j < booksavailable.size(); j++) {
@@ -49,7 +52,7 @@ public class Estudiante extends Persona implements Prestar{
             }
 
             if (!bookfound) {
-                System.out.println("El libro " + booksrequested + " no está disponible. Intente con otro libro.");
+                System.out.println("El libro " + booksrequested + " no esta disponible. Intente con otro libro.");
                 i--;
             }
         }
@@ -59,7 +62,7 @@ public class Estudiante extends Persona implements Prestar{
             System.out.println("Libro alquilado: " + libro);
         }
       }catch(Exception e){
-             System.out.println("error: "+ e);
+             System.out.println("error dato invalido ");
             }
     }
 

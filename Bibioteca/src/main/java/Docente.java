@@ -33,7 +33,6 @@ public class Docente extends Persona implements Prestar{
         for (int i = 0; i < bookstoapresent; i++) {
             System.out.println("---------------------------------------------------------------");
             System.out.println("Ingrese el nombre del libro " + (i + 1) + " que desea alquilar:");
-            System.out.println("---------------------------------------------------------------");
             String booksrequested = entrada.nextLine();
             boolean bookfound = false;
             for (int j = 0; j < booksavailable.size(); j++) {
@@ -56,7 +55,7 @@ public class Docente extends Persona implements Prestar{
             System.out.println("Libro alquilado: " + libro);
         }
       }catch(Exception e){
-             System.out.println("error: "+ e);
+             System.out.println("error dato invalido");
           }
     }
 
