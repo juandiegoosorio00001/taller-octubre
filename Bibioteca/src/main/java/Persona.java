@@ -20,14 +20,14 @@ class Libro {
 abstract class Persona {
     String name;
     String lastname;
-    int identificacion;
-    String ocupacion;
+    int identification;
+    String occupation;
 
-    public Persona(String name, String lastname, int identificacion, String ocupacion) {
+    public Persona(String name, String lastname, int identification, String occupation) {
         this.name = name;
         this.lastname = lastname;
-        this.identificacion = identificacion;
-        this.ocupacion = ocupacion;
+        this.identification = identification;
+        this.occupation = occupation;
     }
-    public abstract void PrestarLibro(List<Libro> librosDisponibles);
+    public abstract void PrestarLibro(List<Libro> booksavailable);
 }

@@ -2,55 +2,55 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Docente extends Persona implements Prestar{
-    public Docente(String name, String lastname, int identificacion, String ocupacion) {
-        super(name, lastname, identificacion, ocupacion);
+    public Docente(String name, String lastname, int identification, String occupation) {
+        super(name, lastname, identification, occupation);
     }
 
-    public void PrestarLibro(List<Libro> librosDisponibles) {
+    public void PrestarLibro(List<Libro> booksavailable) {
        try{
-        System.out.println("Bienvenido " + ocupacion + ": " + name + " " + lastname + " id: " + identificacion);
+        System.out.println("Bienvenido " + occupation + ": " + name + " " + lastname + " id: " + identification);
         Scanner entrada = new Scanner(System.in);
-        System.out.println("Libros disponibles para alquilar: " + librosDisponibles);
+        System.out.println("Libros disponibles para alquilar: " + booksavailable);
         System.out.println("Cuantos libros deseas alquilar?");
-        int numLibrosPrestar = entrada.nextInt();
-        while(numLibrosPrestar >3 || numLibrosPrestar <=0 || numLibrosPrestar > librosDisponibles.size()){
-         if(numLibrosPrestar > 3){
+        int bookstoapresent = entrada.nextInt();
+        while(bookstoapresent >3 || bookstoapresent <=0 || bookstoapresent > booksavailable.size()){
+         if(bookstoapresent > 3){
             System.out.println("Error, solo puedes alquilar maximo 3 libros al tiempo");
-         }else if(numLibrosPrestar > librosDisponibles.size()) {
+         }else if(bookstoapresent > booksavailable.size()) {
             System.out.println("el numero de libros solicitados supera los libros disponibles, lo siento");
-             System.out.println("actualmente contamos con " + librosDisponibles.size() +" libros dispobibles");
-         }else if(numLibrosPrestar <=0){
+             System.out.println("actualmente contamos con " + booksavailable.size() +" libros dispobibles");
+         }else if(bookstoapresent <=0){
              System.out.println("Lamento que no quieras alquilas ningun libro, espero pronto quieras hacerlo, adios.");
              return;
          }
-         System.out.println("Libros disponibles para alquilar: " + librosDisponibles);
+         System.out.println("Libros disponibles para alquilar: " + booksavailable);
          System.out.println("Cuantos libros deseas alquilar?");
-         numLibrosPrestar = entrada.nextInt();
+         bookstoapresent = entrada.nextInt();
          entrada.nextLine();
         }
 
-        String[] namesLibros = new String[numLibrosPrestar];
-        for (int i = 0; i < numLibrosPrestar; i++) {
+        String[] namebooks = new String[bookstoapresent];
+        for (int i = 0; i < bookstoapresent; i++) {
             System.out.println("Ingrese el nombre del libro " + (i + 1) + " que desea alquilar:");
-            String libroSolicitado = entrada.nextLine();
-            boolean libroEncontrado = false;
-            for (int j = 0; j < librosDisponibles.size(); j++) {
-                if (librosDisponibles.get(j).getNombre().equalsIgnoreCase(libroSolicitado)) {
-                    namesLibros[i] = libroSolicitado;
-                    librosDisponibles.remove(j);
-                    libroEncontrado = true;
+            String booksrequested = entrada.nextLine();
+            boolean bookfound = false;
+            for (int j = 0; j < booksavailable.size(); j++) {
+                if (booksavailable.get(j).getNombre().equalsIgnoreCase(booksrequested)) {
+                    namebooks[i] = booksrequested;
+                    booksavailable.remove(j);
+                    bookfound = true;
                     break;
                 }
             }
 
-            if (!libroEncontrado) {
-                System.out.println("El libro " + libroSolicitado + " no esta disponible. Intente con otro libro.");
+            if (!bookfound) {
+                System.out.println("El libro " + booksrequested + " no esta disponible. Intente con otro libro.");
                 i--;
             }
         }
 
         System.out.println("Resumen de su prestamo:");
-        for (String libro : namesLibros) {
+        for (String libro : namebooks) {
             System.out.println("Libro alquilado: " + libro);
         }
       }catch(Exception e){
@@ -58,15 +58,15 @@ public class Docente extends Persona implements Prestar{
           }
     }
 
-    public void realizarAcciones(Object librosDisponibles) {
+    public void realizarAcciones(Object booksavailable) {
     }
-    public void PrestarLibro(Object librosDisponibles) {
+    public void PrestarLibro(Object booksavailable) {
         
     }
 
-    public void prestarLibro(Object librosDisponibles) {
+    public void prestarLibro(Object booksavailable) {
     }
     @Override
-    public void prestarLibro(List<Libro> librosDisponibles) {
+    public void prestarLibro(List<Libro> booksavailable) {
     }
 }

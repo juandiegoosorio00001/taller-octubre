@@ -2,12 +2,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Administrador extends Persona implements Prestar {
-    public Administrador(String name, String lastname, int identificacion, String ocupacion) {
-        super(name, lastname, identificacion, ocupacion);
+    public Administrador(String name, String lastname, int identification, String occupation) {
+        super(name, lastname, identification, occupation);
     }
     @Override
     
-    public void PrestarLibro(List<Libro> librosDisponibles) {
+    public void PrestarLibro(List<Libro> booksavailable) {
      try{
         Scanner entrada = new Scanner(System.in);
         boolean prueba = false;
@@ -23,7 +23,7 @@ public class Administrador extends Persona implements Prestar {
                 for (int i = 0; i < numLibros; i++) {
                     System.out.println("Ingrese el nombre del libro " + (i + 1) + ":");
                     String nombreLibro = entrada.nextLine();
-                    librosDisponibles.add(new Libro(nombreLibro));
+                    booksavailable.add(new Libro(nombreLibro));
                     System.out.println("Libro " + nombreLibro + " registrado.");
                 }
             }
@@ -32,14 +32,14 @@ public class Administrador extends Persona implements Prestar {
              System.out.println("error: "+ e);
       }
 }
-    public void realizarAcciones(Object librosDisponibles) {
+    public void realizarAcciones(Object booksavailable) {
     }
-    public void PrestarLibro(Object librosDisponibles) {
+    public void PrestarLibro(Object booksavailable) {
     }
 
-    public void prestarLibro(Object librosDisponibles) {
+    public void prestarLibro(Object booksavailable) {
     }
     @Override
-    public void prestarLibro(List<Libro> librosDisponibles) {
+    public void prestarLibro(List<Libro> booksavailable) {
     }
 }
